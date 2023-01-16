@@ -6,43 +6,38 @@ import './custom.css';
 
 const App = () => {
 
-  //step 1
-  const [arr, setarr] = useState([]);
-  
-  //step 2b
+  const [students, setstudents] = useState([]);
+
   useEffect(() => {
-    fetch("api/employee/GetEmployess")
+    fetch("api/student/GetStudents")
       .then(response => { return response.json() })
-      .then(responseJson => {
-        console.log(responseJson)
-        setarr(responseJson)
+      .then(responsejson => {
+        console.log(responsejson)
+        setstudents(responsejson)
       })
   }, []);
 
 
   return <div>
-
-    <table>
+    <table >
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+      </thead>
       <tbody>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th> 
-          
-          <th>Phone</th>
-        </tr>
-        {arr.map((item) => {
-          return <tr key={item.id}>
+      {students.map((item) => {
+        return <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.name}</td>
             <td>{item.email}</td>
-            <td>{item.address}</td>
-            <td>{item.phone}</td> 
           </tr>
         })}
       </tbody>
     </table>
   </div>
 }
+
 export default App;

@@ -1,0 +1,10 @@
+@model myapp.Models.Student;
+@{
+ ViewData["Title"] = "Add Student";   
+}
+
+<form method="post" action="Add">
+    Id: <input type="text" asp-action="Id">
+    Name: <input type="text" asp-action="Name">
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>

@@ -18,25 +18,30 @@ const App = () => {
   }, []);
 
 
-  return <div>
-    <table >
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      {students.map((item) => {
-        return <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.email}</td>
-          </tr>
-        })}
-      </tbody>
-    </table>
+  return <div className='container'>
+    <h1>Students</h1>
+    <div className='row'>
+      <div className='col-sm-12'>
+        <table className='table table-striped'>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((item) => {
+              return <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+              </tr>
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 }
 
